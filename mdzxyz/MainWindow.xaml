@@ -1,0 +1,30 @@
+﻿<Window x:Class="mdzxyz.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:mdzxyz"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <DockPanel>
+        <TextBlock DockPanel.Dock="Top" Text="Lista albumów" FontSize="35" Background="SeaGreen" Foreground="White" FontWeight="Bold"/>
+
+        <ListBox x:Name="ListBoxLista" DockPanel.Dock="Left" Width="200" Background="DarkGreen" Foreground="White"
+                 ItemsSource="{Binding Albums}" DisplayMemberPath="Album"
+                 SelectedItem="{Binding SelectedAlbum, Mode=TwoWay}"/>
+
+        <StackPanel Background="LightSeaGreen" Orientation="Horizontal">
+            <Image Height="150" Source="obraz.png" VerticalAlignment="Top" Margin="5,10"/>
+            <StackPanel Margin="10">
+                <TextBlock Text="Informacje szczegółowe:" FontWeight="Bold" FontSize="16"/>
+                <TextBlock Text="{Binding SelectedAlbum.Artysta}" FontSize="14"/>
+                <TextBlock Text="{Binding SelectedAlbum.Album}" FontSize="14"/>
+                <TextBlock Text="{Binding SelectedAlbum.Rok}" FontSize="14"/>
+                <TextBlock Text="{Binding SelectedAlbum.LiczbaUtworow}" FontSize="14"/>
+                <TextBlock Text="Ilość pobrań:" FontSize="14"/>
+                <TextBlock Text="{Binding SelectedAlbum.LiczbaPobran}" FontSize="14" FontWeight="Bold"/>
+                <Button Content="Pobierz" Background="DarkGreen" Foreground="White" Width="100"/>
+            </StackPanel>
+        </StackPanel>
+    </DockPanel>
+</Window>
